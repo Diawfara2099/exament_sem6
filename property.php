@@ -99,9 +99,9 @@ include("config.php");
                                 <div class="featured-thumb hover-zoomer mb-4">
                                     <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
                                         
-                                        <div class="sale bg-secondary text-white">À <?php echo $row['5'];?></div>
                                         <div class="price text-primary text-capitalize">F cfa<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> métre carrés</span></div>
-                                        
+                                        <div class="sale bg-secondary text-white">À <?php echo $row['5'];?></div>
+
                                     </div>
                                     <div class="featured-thumb-data shadow-one">
                                         <div class="p-4">

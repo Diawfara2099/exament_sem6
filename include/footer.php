@@ -7,7 +7,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="footer-widget mb-4">
                                 <div class="footer-logo mb-4"> 
-                                    <a href="#"><img class="logo-bottom" src="images/logo/logo-white.png" alt="image"></a> 
+                                    <a href="#"><img class="logo-bottom" src="images/logo/logo3.png" alt="image"></a> 
                                 </div>
                                 <p class="pb-20 text-white">Découvrez les meilleures opportunités immobilières à Dakar. Nous offrons une gamme variée de propriétés adaptées à vos besoins, que ce soit pour un investissement ou pour un logement personnel. Faites confiance à notre expertise pour trouver la propriété qui vous correspond.</p>
                                 <p class="pb-20 text-white">Notre équipe est à votre disposition pour vous aider à chaque étape de votre recherche immobilière. Contactez-nous pour plus d'informations sur nos services et pour obtenir des conseils personnalisés.</p>

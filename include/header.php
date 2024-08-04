@@ -14,11 +14,11 @@
 								<li><i class="fas fa-user text-primary mr-1"></i>
 								<?php  if(isset($_SESSION['uemail']))
 								{ ?>
-								<a href="logout.php">Logout</a>&nbsp;&nbsp;<?php } else { ?>
-								<a href="login.php">Login</a>&nbsp;&nbsp;
+								<a href="logout.php">Deconnecter</a>&nbsp;&nbsp;<?php } else { ?>
+								<a href="login.php">Connexion</a>&nbsp;&nbsp;
 								<?php } ?>
 								| </li>
-								<li><i class="fas fa-user text-primary mr-1"></i><a href="register.php"> Register</li>
+								<li><i class="fas fa-user text-primary mr-1"></i><a href="register.php"> Inscription</li>
 								</ul>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <nav class="navbar navbar-expand-lg navbar-light p-0"> <a class="navbar-brand position-relative" href="#"><img class="nav-logo" src="images/logo/logo.png" alt=""></a>
+                            <nav class="navbar navbar-expand-lg navbar-light p-0"> <a class="navbar-brand position-relative" href="#"><img class="nav-logo" src="images/logo/logo3.png" alt=""></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">

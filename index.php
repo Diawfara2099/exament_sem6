@@ -21,6 +21,13 @@ include("config.php");
 	========================================================-->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+<style>
+  .fixed-size-img {
+    width: 100%; /* Set width to 100% to fit the container */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the entire area */
+  }
+</style>
 
 <!--	Css Link
 	========================================================-->
@@ -370,74 +377,91 @@ include("config.php");
         </div>
         
          <!-- Popular Place -->
-    <div class="full-row bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-secondary double-down-line text-center mb-5">Places Populaire</h2>
-                </div>
-            </div>
-            <div class="row">
-                <?php
-                $places = ['Parcelle', 'Gorée', 'Lac Rose', 'Malika'];
-                $images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
-
-                foreach ($places as $index => $state) {
-                    $query = mysqli_query($con, "SELECT COUNT(*) as total FROM property WHERE state='$state'");
-                    $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                    $total = $row['total'];
-                ?>
-                <div class="col-md-6 col-lg-3 pb-1">
-                    <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9">
-                        <img src="images/thumbnail4/<?php echo $images[$index]; ?>" alt="">
-                        <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-                            <h4 class="hover-text-primary text-capitalize">
-                                <a href="stateproperty.php?id=<?php echo urlencode($state); ?>"><?php echo htmlspecialchars($state); ?></a>
-                            </h4>
-                            <span><?php echo $total; ?>les propriétés listées</span>
-                        </div>
-                    </div>
-                </div>
-                <?php } ?>
+         <div class="full-row bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-secondary double-down-line text-center mb-5">Places Populaire</h2>
             </div>
         </div>
+        <div class="row">
+            <?php
+            $places = ['Parcelle', 'Gorée', 'Lac Rose', 'Malika'];
+            $images = ['7.png', '8.png', '9.png', '11.png'];
+
+            foreach ($places as $index => $state) {
+                $query = mysqli_query($con, "SELECT COUNT(*) as total FROM property WHERE state='$state'");
+                $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                $total = $row['total'];
+            ?>
+            <div class="col-md-6 col-lg-3 pb-1">
+                <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9">
+                    <img class="fixed-size-img" src="images/thumbnail4/<?php echo $images[$index]; ?>" alt="">
+                    <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
+                        <h4 class="hover-text-primary text-capitalize">
+                            <a href="stateproperty.php?id=<?php echo urlencode($state); ?>"><?php echo htmlspecialchars($state); ?></a>
+                        </h4>
+                        <span><?php echo $total; ?> les propriétés listées</span>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
     </div>
+</div>
+
     <!-- Popular Place -->
-
-    <!-- Testimonial -->
-    <div class="full-row">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="content-sidebar p-4">
-                        <div class="mb-3 col-lg-12">
-                            <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Testimonial</h4>
-                            <div class="recent-review owl-carousel owl-dots-gray owl-dots-hover-primary">
-                                <?php
+<!-- Testimonial -->
+<div class="full-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-sidebar p-4">
+                    <div class="mb-3 col-lg-12">
+                        <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Testimonial</h4>
+                        <div class="recent-review owl-carousel owl-dots-gray owl-dots-hover-primary">
+                            <?php
+                            // Check if the connection variable $con is set and connected successfully
+                            if ($con) {
+                                // Execute the query
                                 $query = mysqli_query($con, "SELECT feedback.feedback_text, user.uname, user.utype FROM feedback JOIN user ON feedback.uid=user.uid WHERE feedback.status='1'");
-                                while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-                                ?>
-                                <div class="item">
-                                    <div class="p-4 bg-primary down-angle-white position-relative">
-                                        <p class="text-white">
-                                            <i class="fas fa-quote-left mr-2 text-white"></i>
-                                            <?php echo htmlspecialchars($row['feedback_text']); ?>.
-                                            <i class="fas fa-quote-right mr-2 text-white"></i>
-                                        </p>
-                                    </div>
-                                    <div class="p-2 mt-4">
-                                        <span class="text-primary d-table text-capitalize"><?php echo htmlspecialchars($row['uname']); ?></span>
-                                        <span class="text-capitalize"><?php echo htmlspecialchars($row['utype']); ?></span>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                            </div>
+
+                                // Check if the query was successful
+                                if ($query) {
+                                    // Loop through each result row
+                                    while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                                        ?>
+                                        <div class="item">
+                                            <div class="p-4 bg-primary down-angle-white position-relative">
+                                                <p class="text-white">
+                                                    <i class="fas fa-quote-left mr-2 text-white"></i>
+                                                    <?php echo htmlspecialchars($row['feedback_text']); ?>.
+                                                    <i class="fas fa-quote-right mr-2 text-white"></i>
+                                                </p>
+                                            </div>
+                                            <div class="p-2 mt-4">
+                                                <span class="text-primary d-table text-capitalize"><?php echo htmlspecialchars($row['uname']); ?></span>
+                                                <span class="text-capitalize"><?php echo htmlspecialchars($row['utype']); ?></span>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                } else {
+                                    // Display error if the query fails
+                                    echo "<p class='text-danger'>Error retrieving testimonials: " . mysqli_error($con) . "</p>";
+                                }
+                            } else {
+                                echo "<p class='text-danger'>Database connection not established.</p>";
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- Testimonial -->
 
     <!-- Footer start -->
